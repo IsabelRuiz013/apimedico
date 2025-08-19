@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Médicos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Sistema de Gestión de Médicos</h1>
+            <p>Administra la información de los profesionales médicos</p>
+        </header>
+
+        <div class="content">
+            <!-- Formulario para agregar/actualizar médico -->
+            <section class="form-section">
+                <h2>Registrar Médico</h2>
+                <form id="medicoForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="idMedico">ID Médico</label>
+                            <input type="text" id="idMedico" name="idMedico" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="identificacion">Identificación</label>
+                            <input type="text" id="identificacion" name="identificacion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombres">Nombres Completos</label>
+                            <input type="text" id="nombres" name="nombres" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo Electrónico</label>
+                            <input type="email" id="correo" name="correo" required>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            Agregar Médico
+                        </button>
+                        <button type="button" class="btn btn-success" id="updateBtn" style="display: none;">
+                            Actualizar Médico
+                        </button>
+                        <button type="button" class="btn" id="cancelBtn" style="display: none;">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Área de mensajes -->
+            <div id="messages"></div>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Procesando...</p>
+            </div>
+
+            <!-- Lista de médicos -->
+            <section class="form-section">
+                <h2>Lista de Médicos</h2>
+                <div class="btn-group" style="margin-bottom: 20px;">
+                    <button class="btn btn-primary" onclick="cargarMedicos()">
+                        Actualizar Lista
+                    </button>
+                </div>
+                <div id="medicosList" class="medicos-grid"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="server.js"></script>
+</body>
+</html>
